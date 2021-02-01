@@ -1,0 +1,19 @@
+{
+  "name": "shower-mdx",
+  "version": "1.0.0",
+  "description": "a tool to convert mdx into shower template",
+  "main": "index.js",
+  "repository": "https://github.com/varya/shower-mdx.git",
+  "author": "Varya Stepanova",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^10.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
