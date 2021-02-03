@@ -1,0 +1,166 @@
+---
+
+layout: ribbon
+title: Design Systems Breakfast - Jan 2021
+
+
+---
+
+<!-- # <span className="guide">Design Tokens</span> <span className="building">and</span> <span className="ds-infrastructure">Component Driven<br/>Development</span> {#Cover}
+
+
+<b>Varya Stepanova</b>, Design Systems Architect / [varya.me](http://varya.me)
+
+
+@ [Brudge the Gap, design systems breakfast](https://www.eventbrite.com/e/bridge-the-gap-casual-breakfast-on-design-systems-tickets-136072952865), January 28<sup>th</sup>, 2021. -->
+
+<!-- 
+<style>
+
+#Cover {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+#Cover,
+#Cover h2,
+#Cover p
+ {
+  color: black;
+}
+
+#Cover h2 {
+  font-size: 55px;
+  margin-top: 100px;
+  line-height: 1em;
+  text-transform: capitalize;
+}
+
+#Cover h2 .guide {
+  display: block;
+  color: #38bcc2;
+}
+
+#Cover h2 .building {
+  font-size: 40px;
+  font-family: "Graphik Light";
+  display: block;
+  text-transform: lowercase;
+  margin-top: 0.25em;
+}
+
+#Cover h2 .ds-infrastructure {
+  color: #ca4e1f;
+}
+
+#Cover .author {
+   text-align: right;
+   margin-top: 145px;
+}
+
+#Cover .event {
+  font-size: 0.5em;
+  text-align: right;
+  margin-top: 0;
+}
+
+</style> -->
+
+<!--
+
+Hello. My name is Varya, and my talk is about -- surprise! -- design systems. However, I will keep it very practical. I
+would like to show how we could use our developers' knowledge and ability to code and apply it to the domain of design
+systems. Using certain technologies, we can build not only the interface components but also infrastucture and tools for
+our design system to run.
+
+-->
+
+## Me
+
+<!-- {: .no-title .about-me } -->
+
+<!-- ![](/me.jpg) -->
+<!-- {: .photo } -->
+
+### Varya Stepanova
+<b>Design Systems Architect</b><br/>
+<small>independent consultant</small>
+
+#### Contacts
+* [@varya_en](https://twitter.com/varya_en){: .twitter }
+* [varya.me](http://varya.me){: .web }
+* [mail@varya.me](mailto:mail@varya.me)
+
+<!-- {: .contacts } -->
+
+
+
+## Design Tokens
+{: .design-tokens .slide--shout .slide--highlighted }
+
+<!-- ![](pictures/icons/web-design/012-pixel.svg){: .svg .image } -->
+<!-- 
+<style>
+.design-tokens .image {
+  width: 250px;
+}
+</style> -->
+
+<!--
+
+
+-->
+
+
+## Design Tokens
+<!-- {: .react-world .slide--center } -->
+
+- reduce duplicated work
+- keep shared context within one team
+- help cross-company collaboration
+- accessible on-brand web and mobile apps
+- ensure smooth UX
+- empower us to create better products
+
+
+<!--
+
+-->
+
+
+## Case study
+<!-- {: .case-study .slide--shout .slide--primary } -->
+
+<!-- ![](pictures/icons/web-design/035-testing.svg){: .svg .image } -->
+<!-- 
+<style>
+.case-study .image {
+  width: 250px;
+}
+</style> -->
+
+<!--
+
+-->
+
+
+## The tokens
+<!-- {: .the-tokens } -->
+
+
+```
+$dt-primary: #f74d7b;
+$dt-disabled:  #767677;
+$dt-inverse: #FFFFFF;
+$dt-lines: #404041;
+```
+<!-- {: .code } -->
+
+<div className="color-boxes">
+  <div className="item primary"></div>
+  <div className="item disabled"></div>
+  <div className="item inverse"></div>
+  <div className="item lines"></div>
+</div>
+
+
