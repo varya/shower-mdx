@@ -1,62 +1,56 @@
-import fs from 'fs'
-import matter from 'gray-matter'
-import hydrate from 'next-mdx-remote/hydrate'
-import renderToString from 'next-mdx-remote/render-to-string'
-import dynamic from 'next/dynamic'
-import Head from 'next/head'
-import Link from 'next/link'
-import path from 'path'
-import Text from '../components/Text'
+import fs from "fs";
+import matter from "gray-matter";
+import renderToString from "next-mdx-remote/render-to-string";
+// import dynamic from "next/dynamic";
+import Head from "next/head";
+import path from "path";
 
 const components = {
-  p: Text,
-  
+  section: Slide,
+  // img: ({ src, height, width, ...rest }) => (
+  //   // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
+  //   <NextImage
+  //     layout="fill"
+  //     src={src}
+  //     height={height}
+  //     width={width}
+  //     {...rest}
+  //   />
+  // ),
+
   // TODO:
   // TestComponent: dynamic(() => import('../../components/TestComponent')),
   // Head,
-}
+};
 
 export default function PostPage({ source, frontMatter }) {
-  const content = hydrate(source, { components })
   return (
-    // <Layout>
-    <div>
-      <header>
-        <nav>
-          <Link href="/">
-            <a>👈 Go back home</a>
-          </Link>
-        </nav>
-      </header>
-      <div className="post-header">
-        <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
-        )}
+    <>
+      <div className="shower list">
+        <Head>
+          <style>
+            {`
+            .shower {
+              --slide-ratio: calc(16 / 9);
+            }
+          ${frontMatter.style}`}
+          </style>
+        </Head>
+        <header className="caption">
+          <h1>{frontMatter.title}</h1>
+          {frontMatter.subtitle && <p>{frontMatter.subtitle}</p>}
+        </header>
+        <div dangerouslySetInnerHTML={{ __html: source.renderedOutput }} />
       </div>
-      <main>{content}</main>
-
-      <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
-        .post-header {
-          margin-bottom: 2rem;
-        }
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
-      </div>
-    // </Layout>
-  )
+    </>
+  );
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath =  path.join(process.cwd(),`index.mdx`);
-  const source = fs.readFileSync(postFilePath)
+  const postFilePath = path.join(process.cwd(), `index.mdx`);
+  const source = fs.readFileSync(postFilePath);
 
-  const { content, data } = matter(source)
+  const { content, data } = matter(source);
 
   const mdxSource = await renderToString(content, {
     components,
@@ -66,25 +60,12 @@ export const getStaticProps = async ({ params }) => {
       rehypePlugins: [],
     },
     scope: data,
-  })
+  });
 
   return {
     props: {
       source: mdxSource,
       frontMatter: data,
     },
-  }
-}
-
-// export const getStaticPaths = async () => {
-//   const paths = postFilePaths
-//     // Remove file extensions for page paths
-//     .map((path) => path.replace(/\.mdx?$/, ''))
-//     // Map the path into the static paths object required by Next.js
-//     .map((slug) => ({ params: { slug } }))
-
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }
+  };
+};
