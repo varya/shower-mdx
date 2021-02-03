@@ -5,6 +5,18 @@ import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
 
+const Slide = ({ children, ...props }) => {
+  const firstChild = (Array.isArray(children) ? children[0] : children) || null;
+  const isSlideSection = firstChild.props.mdxType === "h2";
+  return isSlideSection ? (
+    <section className={isSlideSection ? "slide" : ""} {...props}>
+      {children}
+    </section>
+  ) : (
+    children
+  );
+};
+
 const components = {
   section: Slide,
   // img: ({ src, height, width, ...rest }) => (
@@ -56,7 +68,7 @@ export const getStaticProps = async ({ params }) => {
     components,
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [],
+      remarkPlugins: [require("remark-sectionize")],
       rehypePlugins: [],
     },
     scope: data,
