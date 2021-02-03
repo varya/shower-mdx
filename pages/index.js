@@ -1,4 +1,5 @@
 import fs from "fs";
+import { useEffect } from "react";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 // import dynamic from "next/dynamic";
@@ -36,23 +37,46 @@ const components = {
 };
 
 export default function PostPage({ source, frontMatter }) {
+  // Hack. Adding class to body in order to get access to color variables
+  // Doing it inside useEffect because first shower.js needs to parse the DOM and find right container of the slides
+  useEffect(() => {
+    document.body.className = "shower";
+    return () => {
+      document.body.className = "";
+    };
+  });
+
+  const presentationHeader = `
+    <header class="caption">
+      <h1>${frontMatter.title}</h1>
+      ${frontMatter.subtitle && `<p>${frontMatter.subtitle}</p>`}
+    </header>`;
+
   return (
     <>
-      <div className="shower list">
-        <Head>
-          <style>
-            {`
+      <Head>
+        <style>
+          {`
+          body {
+            background-color: var(--color-grey);
+          }
             .shower {
               --slide-ratio: calc(16 / 9);
             }
           ${frontMatter.style}`}
-          </style>
-        </Head>
-        <header className="caption">
+        </style>
+      </Head>
+      <div
+        className="shower list"
+        dangerouslySetInnerHTML={{
+          __html: presentationHeader + source.renderedOutput,
+        }}
+      >
+        {/* <header className="caption">
           <h1>{frontMatter.title}</h1>
           {frontMatter.subtitle && <p>{frontMatter.subtitle}</p>}
-        </header>
-        <div dangerouslySetInnerHTML={{ __html: source.renderedOutput }} />
+        </header> */}
+        {/* <div dangerouslySetInnerHTML={{ __html: source.renderedOutput }} /> */}
       </div>
     </>
   );
