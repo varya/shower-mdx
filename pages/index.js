@@ -2,9 +2,9 @@ import fs from "fs";
 import { useEffect, useRef } from "react";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
-// import dynamic from "next/dynamic";
 import Head from "next/head";
 import path from "path";
+import Cover from "../components/Cover";
 
 const Slide = ({ children, ...props }) => {
   const firstChild = (Array.isArray(children) ? children[0] : children) || null;
@@ -36,7 +36,8 @@ const components = {
   // ),
 
   // TODO:
-  // TestComponent: dynamic(() => import('../../components/TestComponent')),
+  Cover,
+
   // Head,
 };
 
