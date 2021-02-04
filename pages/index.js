@@ -1,5 +1,5 @@
 import fs from "fs";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 // import dynamic from "next/dynamic";
@@ -36,21 +36,21 @@ const components = {
   // Head,
 };
 
-export default function PostPage({ source, frontMatter }) {
-  // Hack. Adding class to body in order to get access to color variables
-  // Doing it inside useEffect because first shower.js needs to parse the DOM and find right container of the slides
+export default function PostPage({ content, frontMatter }) {
+  const ref = useRef(null);
+
   useEffect(() => {
+    // TODO: temporary hack to force keyboard events work, to be fixed
+    const takeFocus = () => ref.current.focus();
+    document.getElementById("__next").setAttribute("tabindex", "-1");
+    document.getElementById("__next").addEventListener("focus", takeFocus);
+    // TODO: temporary hack - adding class to body in order to get access to color variables
     document.body.className = "shower";
     return () => {
+      document.getElementById("__next").removeEventListener("focus", takeFocus);
       document.body.className = "";
     };
   });
-
-  const presentationHeader = `
-    <header class="caption">
-      <h1>${frontMatter.title}</h1>
-      ${frontMatter.subtitle && `<p>${frontMatter.subtitle}</p>`}
-    </header>`;
 
   return (
     <>
@@ -68,21 +68,17 @@ export default function PostPage({ source, frontMatter }) {
       </Head>
       <div
         className="shower list"
+        ref={ref}
+        tabIndex="-1"
         dangerouslySetInnerHTML={{
-          __html: presentationHeader + source.renderedOutput,
+          __html: content,
         }}
-      >
-        {/* <header className="caption">
-          <h1>{frontMatter.title}</h1>
-          {frontMatter.subtitle && <p>{frontMatter.subtitle}</p>}
-        </header> */}
-        {/* <div dangerouslySetInnerHTML={{ __html: source.renderedOutput }} /> */}
-      </div>
+      ></div>
     </>
   );
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async () => {
   const postFilePath = path.join(process.cwd(), `index.mdx`);
   const source = fs.readFileSync(postFilePath);
 
@@ -98,9 +94,25 @@ export const getStaticProps = async ({ params }) => {
     scope: data,
   });
 
+  const presentationHeader = `
+    <header class="caption">
+      <h1>${data.title}</h1>
+      ${data.subtitle && `<p>${data.subtitle}</p>`}
+    </header>`;
+
+  const presentationFooter = `
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>`;
+
+  const presHtml =
+    presentationHeader + mdxSource.renderedOutput + presentationFooter;
+
   return {
     props: {
-      source: mdxSource,
+      content: presHtml,
       frontMatter: data,
     },
   };
