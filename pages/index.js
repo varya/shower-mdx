@@ -10,7 +10,11 @@ const Slide = ({ children, ...props }) => {
   const firstChild = (Array.isArray(children) ? children[0] : children) || null;
   const isSlideSection = firstChild.props.mdxType === "h2";
   return isSlideSection ? (
-    <section className={isSlideSection ? "slide" : ""} {...props}>
+    <section
+      className={isSlideSection ? "slide" : ""}
+      {...props}
+      id={firstChild.props.id}
+    >
       {children}
     </section>
   ) : (
@@ -88,7 +92,11 @@ export const getStaticProps = async () => {
     components,
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [require("remark-sectionize")],
+      remarkPlugins: [
+        require("remark-heading-id"),
+
+        require("remark-sectionize"),
+      ],
       rehypePlugins: [],
     },
     scope: data,
