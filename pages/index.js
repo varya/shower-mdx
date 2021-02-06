@@ -2,15 +2,19 @@ import fs from "fs";
 import { useEffect, useRef } from "react";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
-// import dynamic from "next/dynamic";
 import Head from "next/head";
 import path from "path";
+import Cover from "../components/Cover";
 
 const Slide = ({ children, ...props }) => {
   const firstChild = (Array.isArray(children) ? children[0] : children) || null;
   const isSlideSection = firstChild.props.mdxType === "h2";
   return isSlideSection ? (
-    <section className={isSlideSection ? "slide" : ""} {...props}>
+    <section
+      className={isSlideSection ? "slide" : ""}
+      {...props}
+      id={firstChild.props.id}
+    >
       {children}
     </section>
   ) : (
@@ -32,7 +36,8 @@ const components = {
   // ),
 
   // TODO:
-  // TestComponent: dynamic(() => import('../../components/TestComponent')),
+  Cover,
+
   // Head,
 };
 
@@ -88,7 +93,11 @@ export const getStaticProps = async () => {
     components,
     // Optionally pass remark/rehype plugins
     mdxOptions: {
-      remarkPlugins: [require("remark-sectionize")],
+      remarkPlugins: [
+        require("remark-heading-id"),
+
+        require("remark-sectionize"),
+      ],
       rehypePlugins: [],
     },
     scope: data,
