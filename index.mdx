@@ -1,166 +1,132 @@
 ---
 
 layout: ribbon
-title: Design Systems Breakfast - Jan 2021
-
-
+title: Shower Presentation Engine
+subtitle: Yours Truly, Famous Inc.
+style: >
+    #cover h2 {
+        margin: 30px 0 0;
+        color: white;
+        text-align: center;
+        font-size: 70px;
+    }
+    #cover p {
+        margin: 10px 0 0;
+        text-align: center;
+        color: white;
+        font-style: italic;
+        font-size: 20px;
+    }
+    #cover p a {
+        color: white;
+    }
 ---
 
-<!-- # <span className="guide">Design Tokens</span> <span className="building">and</span> <span className="ds-infrastructure">Component Driven<br/>Development</span> {#Cover}
 
+## Shower Presentation Engine {#cover}
 
-<b>Varya Stepanova</b>, Design Systems Architect / [varya.me](http://varya.me)
+Brought to you by [Vadim Makeev](http://pepelsbey.net)
+ 
+  <figure>
+    <img className="cover" src="https://shwr.me/pictures/cover.jpg" alt="Hands on the orange typewriter in a park"/>
+    <figcaption className="copyright right white">
+    <a href="http://fiftyfootshadows.net/">© John Carey</a>
+    </figcaption>
+  </figure>
 
+## Shower key features
+- Built on HTML, CSS and JavaScript
+- Works in all modern browsers
+- Themes are separated from engine
+- Fully keyboard accessible
+- Printable to PDF
 
-@ [Brudge the Gap, design systems breakfast](https://www.eventbrite.com/e/bridge-the-gap-casual-breakfast-on-design-systems-tickets-136072952865), January 28<sup>th</sup>, 2021. -->
+<p className="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
 
-<!-- 
-<style>
+## Plain text on your slides
 
-#Cover {
-  padding-left: 60px;
-  padding-right: 60px;
-}
+Lorem ipsum dolor sit amet, consectetur [adipisicing](#4) elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, _quis nostrud_ exercitation ullamco laboris __nisi ut aliquip__ ex ea commodo consequat. Duis aute irure *dolor* in reprehenderit in voluptate velit esse cillum **dolore** eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in ```<culpa>``` qui officia deserunt mollit anim id est laborum.
 
-#Cover,
-#Cover h2,
-#Cover p
- {
-  color: black;
-}
+## Two columns if you like
 
-#Cover h2 {
-  font-size: 55px;
-  margin-top: 100px;
-  line-height: 1em;
-  text-transform: capitalize;
-}
+<div className="columns two">
+  
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 
-#Cover h2 .guide {
-  display: block;
-  color: #38bcc2;
-}
-
-#Cover h2 .building {
-  font-size: 40px;
-  font-family: "Graphik Light";
-  display: block;
-  text-transform: lowercase;
-  margin-top: 0.25em;
-}
-
-#Cover h2 .ds-infrastructure {
-  color: #ca4e1f;
-}
-
-#Cover .author {
-   text-align: right;
-   margin-top: 145px;
-}
-
-#Cover .event {
-  font-size: 0.5em;
-  text-align: right;
-  margin-top: 0;
-}
-
-</style> -->
-
-<!--
-
-Hello. My name is Varya, and my talk is about -- surprise! -- design systems. However, I will keep it very practical. I
-would like to show how we could use our developers' knowledge and ability to code and apply it to the domain of design
-systems. Using certain technologies, we can build not only the interface components but also infrastucture and tools for
-our design system to run.
-
--->
-
-## Me
-
-<!-- {: .no-title .about-me } -->
-
-<!-- ![](/me.jpg) -->
-<!-- {: .photo } -->
-
-### Varya Stepanova
-<b>Design Systems Architect</b><br/>
-<small>independent consultant</small>
-
-#### Contacts
-* [@varya_en](https://twitter.com/varya_en){: .twitter }
-* [varya.me](http://varya.me){: .web }
-* [mail@varya.me](mailto:mail@varya.me)
-
-<!-- {: .contacts } -->
-
-
-
-## Design Tokens
-{: .design-tokens .slide--shout .slide--highlighted }
-
-<!-- ![](pictures/icons/web-design/012-pixel.svg){: .svg .image } -->
-<!-- 
-<style>
-.design-tokens .image {
-  width: 250px;
-}
-</style> -->
-
-<!--
-
-
--->
-
-
-## Design Tokens
-<!-- {: .react-world .slide--center } -->
-
-- reduce duplicated work
-- keep shared context within one team
-- help cross-company collaboration
-- accessible on-brand web and mobile apps
-- ensure smooth UX
-- empower us to create better products
-
-
-<!--
-
--->
-
-
-## Case study
-<!-- {: .case-study .slide--shout .slide--primary } -->
-
-<!-- ![](pictures/icons/web-design/035-testing.svg){: .svg .image } -->
-<!-- 
-<style>
-.case-study .image {
-  width: 250px;
-}
-</style> -->
-
-<!--
-
--->
-
-
-## The tokens
-<!-- {: .the-tokens } -->
-
-
-```
-$dt-primary: #f74d7b;
-$dt-disabled:  #767677;
-$dt-inverse: #FFFFFF;
-$dt-lines: #404041;
-```
-<!-- {: .code } -->
-
-<div className="color-boxes">
-  <div className="item primary"></div>
-  <div className="item disabled"></div>
-  <div className="item inverse"></div>
-  <div className="item lines"></div>
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+  
 </div>
 
+## All kinds of lists
 
+1. Simple lists are marked with bullets
+1. Ordered lists begin with a number
+1. You can even nest lists one inside another
+    * Or mix their types
+    * But do not go too far
+    * Otherwise audience will be bored
+1. Look, seven rows exactly!
+
+## Serious citations
+
+<figure>
+
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+
+<figcaption>Marcus Tullius Cicero</figcaption>
+</figure>
+
+## Code samples
+
+```html
+  <!DOCTYPE html>
+  <html lang="en">
+  <head> <!--Comment-->
+      <title>Shower</title>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="screen.css">
+  </head>
+```
+
+## Even tables
+
+|      |    |      |
+| ---      | ---   | ---       |---
+| **Locavore** | **Umami** | **Helvetica** | **Vegan**
+| **Fingerstache** | Kale |Chips | Keytar
+| **Sriracha** | Gluten-free |Ennui | Keffiyeh
+| **Thundercats** | Jean | Shorts | Biodiesel
+| **Terry** | Richardson | Swag | Blog
+
+It’s good to have information organized
+
+## Pictures {#picture}
+
+  <figure>
+      <img className="cover" src="https://shwr.me/pictures/cover.jpg" alt="Orange typewriter on a wooden table close-up"/>
+      <figcaption className="copyright right white">
+          <a href="http://fiftyfootshadows.net/">© John Carey</a>
+      </figcaption>
+  </figure>
+  <style>
+    {
+      `#picture h2 {
+          color: white;
+      }`   
+    }
+  </style>
+
+
+## You can even do this way
+
+<h2 className="shout shrink">You can even shout this way</h2>
+
+## Inner navigation
+
+<ol>
+    <li>Lets you reveal list items one by one</li>
+    <li className="next">To keep some key points</li>
+    <li className="next">In secret from audience</li>
+    <li className="next">But it will work only once</li>
+    <li className="next">Nobody wants to see the same joke twice</li>
+</ol>
