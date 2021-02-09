@@ -6,10 +6,12 @@ import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
 import Slide from "../components/Slide";
+import Blockquote from "../components/Blockquote";
 
 const components = {
   section: Slide,
   Cover,
+  Blockquote,
 };
 
 export default function Presentation({ content, frontMatter }) {
