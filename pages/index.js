@@ -1,55 +1,26 @@
 import fs from "fs";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
-
-const Slide = ({ children, ...props }) => {
-  const firstChild = (Array.isArray(children) ? children[0] : children) || null;
-  const isSlideSection = firstChild.props.mdxType === "h2";
-  return isSlideSection ? (
-    <section
-      className={isSlideSection ? "slide" : ""}
-      {...props}
-      id={firstChild.props.id}
-    >
-      {children}
-    </section>
-  ) : (
-    children
-  );
-};
+import Slide from "../components/Slide";
 
 const components = {
   section: Slide,
-  // img: ({ src, height, width, ...rest }) => (
-  //   // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
-  //   <NextImage
-  //     layout="fill"
-  //     src={src}
-  //     height={height}
-  //     width={width}
-  //     {...rest}
-  //   />
-  // ),
-
-  // TODO:
   Cover,
-
-  // Head,
 };
 
-export default function PostPage({ content, frontMatter }) {
+export default function Presentation({ content, frontMatter }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    // TODO: temporary hack to force keyboard events work, to be fixed
+    // TODO: temporary hack to force keyboard events work, try to fix better
     const takeFocus = () => ref.current.focus();
     document.getElementById("__next").setAttribute("tabindex", "-1");
     document.getElementById("__next").addEventListener("focus", takeFocus);
-    // TODO: temporary hack - adding class to body in order to get access to color variables
+    // TODO: temporary hack - adding class to body in order to get access to color variables, search for better solution
     document.body.className = "shower";
     return () => {
       document.getElementById("__next").removeEventListener("focus", takeFocus);
@@ -91,14 +62,11 @@ export const getStaticProps = async () => {
 
   const mdxSource = await renderToString(content, {
     components,
-    // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [
-        require("remark-heading-id"),
-
+        [require("remark-attr"), { enableAtxHeaderInline: false }],
         require("remark-sectionize"),
       ],
-      rehypePlugins: [],
     },
     scope: data,
   });
