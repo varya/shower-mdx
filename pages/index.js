@@ -6,10 +6,12 @@ import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
 import Slide from "../components/Slide";
+import InnerNav from "../components/InnerNav";
 
 const components = {
   section: Slide,
   Cover,
+  InnerNav,
 };
 
 export default function Presentation({ content, frontMatter }) {
