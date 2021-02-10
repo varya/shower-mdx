@@ -2,8 +2,6 @@
 
 Create your awesome [Shower](https://shwr.me/) presentation in mdx!
 
-{...To be updated}
-
 ## Basic syntax
 
 ### Separating the slides
@@ -36,3 +34,15 @@ If you need attributes for your slide <section> tag, add it **below** the headin
 
 
 ### Consider using JSX instead of markdown for complex cases
+
+
+
+## Adding custom components
+
+You can add any React components to your presentation. Here is what you need to do:
+
+1. Add your component to `components/` folder.
+
+2. Export it in `components/index.js` like that: `export {default as MyComponent} from "./MyComponent"`
+
+Now your component is accessible in global .mdx scope. You don't need to import it directly to .mdx

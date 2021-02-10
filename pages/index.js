@@ -4,8 +4,7 @@ import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
-import Cover from "../components/Cover";
-import Slide from "../components/Slide";
+import { Cover, Slide } from "../components";
 
 const components = {
   section: Slide,
