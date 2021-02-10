@@ -13,7 +13,7 @@ Create your awesome [Shower](https://shwr.me/) presentation in mdx!
 
 ## Basic syntax
 
-### Separating the slides
+## Separating the slides
 
 Each new slide starts with level 2 heading: 
 
@@ -32,6 +32,7 @@ If you don't need an actul heading for your slide, just keep it blank:
 Write something here...
 ```
 
+## Customising template
 ### Adding custom attributes
 
 If you need attributes for your slide <section> tag, add it **below** the heading. If you need an attribute for the heading, add it on the same line. See below: 
@@ -41,8 +42,16 @@ If you need attributes for your slide <section> tag, add it **below** the headin
 {#sectionId data-customtext="anything}
 ```
 
+{... add line where custom attributes supported}
 
-### Consider using JSX instead of markdown for complex cases
+### Adding custom styles.
+
+There are several options to pass your custom styles to the template:
+
+- Pass it through mdx template, through style field at the frontmatter (global) or jsx string - see sample index.md for examples.
+
+- Use shower theme. there are two themes are included by default - "ribbon" and "material". The theme name needs to be specified as "theme" property in index.mdx. If you want to use custom theme, you will need to manually add name and path to [loadTheme function] (https://github.com/varya/shower-mdx/blob/master/components/Head.js#L6) in Head.
+
 
 
 ## Components
