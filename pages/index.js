@@ -7,7 +7,7 @@ import path from "path";
 import * as Components from "../components";
 
 const components = {
-  section: Components,
+  section: Components.Slide,
   Components,
 };
 
@@ -63,6 +63,7 @@ export const getStaticProps = async () => {
     components,
     mdxOptions: {
       remarkPlugins: [
+        require("remark-mark-plus"),
         [require("remark-attr"), { enableAtxHeaderInline: false }],
         require("remark-sectionize"),
       ],
