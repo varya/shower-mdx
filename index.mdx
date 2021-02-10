@@ -40,7 +40,9 @@ style: >
 Brought to you by [Vadim Makeev](http://pepelsbey.net)
  
 <Cover src="https://shwr.me/pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-  <a href="http://fiftyfootshadows.net/">© John Carey</a>
+
+[© John Carey]("http://fiftyfootshadows.net/")
+
 </Cover>
 
 
@@ -59,13 +61,13 @@ Lorem ipsum dolor sit amet, consectetur [adipisicing](#4) elit, sed do eiusmod t
 
 ## Two columns if you like
 
-<div className="columns two">
+<Columns col="2">
   
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-  
-</div>
+
+</Columns>
 
 ## All kinds of lists
 
@@ -79,12 +81,10 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ## Serious citations
 
-<figure>
+<Blockquote caption="Marcus Tullius Cicero">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+</Blockquote>
 
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
-
-<figcaption>Marcus Tullius Cicero</figcaption>
-</figure>
 
 
 ## Code samples
@@ -129,7 +129,9 @@ It’s good to have information organized
 {#picture}
 
 <Cover src="https://shwr.me/pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-  <a href="http://fiftyfootshadows.net/">© John Carey</a>
+
+[© John Carey]("http://fiftyfootshadows.net/")
+ 
 </Cover>
 
 
@@ -138,13 +140,15 @@ It’s good to have information organized
 
 ## Inner navigation
 
-<ol>
-    <li>Lets you reveal list items one by one</li>
-    <li className="next">To keep some key points</li>
-    <li className="next">In secret from audience</li>
-    <li className="next">But it will work only once</li>
-    <li className="next">Nobody wants to see the same joke twice</li>
-</ol>
+<InnerNav>
+
+  - Lets you reveal list items one by one
+  - To keep some key points
+  - In secret from audience
+  - But it will work only once
+  - Nobody wants to see the same joke twice
+
+</InnerNav>
 
 ## 
 {#see-more}

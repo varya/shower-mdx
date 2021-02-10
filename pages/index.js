@@ -6,12 +6,19 @@ import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
 import Code from "../components/Code";
+import Columns from "../components/Columns";
 import Slide from "../components/Slide";
+import InnerNav from "../components/InnerNav";
+import Blockquote from "../components/Blockquote";
+
 
 const components = {
   section: Slide,
   Code,
   Cover,
+  Columns,
+  InnerNav,
+  Blockquote,
 };
 
 export default function Presentation({ content, frontMatter }) {
