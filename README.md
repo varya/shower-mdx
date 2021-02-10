@@ -3,11 +3,13 @@
 Create your awesome [Shower](https://shwr.me/) presentation in mdx!
 
 
+
 ## Getting started
 
 1. Clone this repo to your machine
 
 2. Open `index.mdx` and start adding your content!
+
 
 ## Basic syntax
 
@@ -104,4 +106,16 @@ compiles to:
 ### Code
 
 <TODO>
+
+
+
+## Adding custom components
+
+You can add any React components to your presentation. Here is what you need to do:
+
+1. Add your component to `components/` folder.
+
+2. Export it in `components/index.js` like that: `export {default as MyComponent} from "./MyComponent"`
+
+Now your component is accessible in global .mdx scope. You don't need to import it directly to .mdx
 
