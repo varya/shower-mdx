@@ -8,7 +8,7 @@ import * as Components from "../components";
 
 const components = {
   section: Components.Slide,
-  Components,
+  ...Components,
 };
 
 export default function Presentation({ content, frontMatter }) {
