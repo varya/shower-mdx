@@ -5,6 +5,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
+import Columns from "../components/Columns";
 import Slide from "../components/Slide";
 import InnerNav from "../components/InnerNav";
 import Blockquote from "../components/Blockquote";
@@ -13,6 +14,7 @@ import Blockquote from "../components/Blockquote";
 const components = {
   section: Slide,
   Cover,
+  Columns,
   InnerNav,
   Blockquote,
 };
