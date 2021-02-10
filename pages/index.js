@@ -4,11 +4,11 @@ import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
-import { Cover, Slide } from "../components";
+import * as Components from "../components";
 
 const components = {
-  section: Slide,
-  Cover,
+  section: Components,
+  Components,
 };
 
 export default function Presentation({ content, frontMatter }) {
