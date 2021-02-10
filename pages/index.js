@@ -5,6 +5,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
+import Code from "../components/Code";
 import Columns from "../components/Columns";
 import Slide from "../components/Slide";
 import InnerNav from "../components/InnerNav";
@@ -13,6 +14,7 @@ import Blockquote from "../components/Blockquote";
 
 const components = {
   section: Slide,
+  Code,
   Cover,
   Columns,
   InnerNav,
@@ -71,6 +73,7 @@ export const getStaticProps = async () => {
     components,
     mdxOptions: {
       remarkPlugins: [
+        require("remark-mark-plus"),
         [require("remark-attr"), { enableAtxHeaderInline: false }],
         require("remark-sectionize"),
       ],
