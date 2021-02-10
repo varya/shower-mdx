@@ -6,11 +6,14 @@ import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
 import Slide from "../components/Slide";
+import InnerNav from "../components/InnerNav";
 import Blockquote from "../components/Blockquote";
+
 
 const components = {
   section: Slide,
   Cover,
+  InnerNav,
   Blockquote,
 };
 
