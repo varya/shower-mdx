@@ -5,10 +5,12 @@ import renderToString from "next-mdx-remote/render-to-string";
 import Head from "next/head";
 import path from "path";
 import Cover from "../components/Cover";
+import Code from "../components/Code";
 import Slide from "../components/Slide";
 
 const components = {
   section: Slide,
+  Code,
   Cover,
 };
 
@@ -64,6 +66,7 @@ export const getStaticProps = async () => {
     components,
     mdxOptions: {
       remarkPlugins: [
+        require("remark-mark-plus"),
         [require("remark-attr"), { enableAtxHeaderInline: false }],
         require("remark-sectionize"),
       ],
