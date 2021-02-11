@@ -3,8 +3,20 @@ import NextHead from "next/head";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
-const Head = ({ title, description, style, meta }) => {
+const loadTheme = (name) => {
+  switch (name) {
+    case "material":
+      import("@shower/material/styles/styles.css");
+      break;
+    case "ribbon":
+    default:
+      import("@shower/ribbon/styles/styles.css");
+  }
+};
+
+const Head = ({ title, description, style, meta, theme }) => {
   const url = publicRuntimeConfig.basePath;
+  loadTheme(theme);
 
   return (
     <NextHead>
@@ -35,7 +47,6 @@ const Head = ({ title, description, style, meta }) => {
         <meta name="twitter:image" content={url + "/" + meta.cover} />
       )}
       <meta name="twitter:image:alt" content={title} />
-
       <style>
         {`
           body {
