@@ -8,10 +8,11 @@ import * as Components from "../components";
 
 const components = {
   section: Components.Slide,
-  Components,
+  ...Components,
 };
 
-export default function Presentation({ content, frontMatter }) {
+export default function Presentation({ content, frontMatter, ...props }) {
+  console.log("🚀 ~ file: index.js ~ line 15 ~ Presentation ~ props", props);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -29,18 +30,7 @@ export default function Presentation({ content, frontMatter }) {
 
   return (
     <>
-      <Head>
-        <style>
-          {`
-          body {
-            background-color: var(--color-grey);
-          }
-            .shower {
-              --slide-ratio: calc(16 / 9);
-            }
-          ${frontMatter.style}`}
-        </style>
-      </Head>
+      <Components.Head {...frontMatter} />
       <div
         className="shower list"
         ref={ref}
@@ -48,14 +38,13 @@ export default function Presentation({ content, frontMatter }) {
         dangerouslySetInnerHTML={{
           __html: content,
         }}
-      ></div>
+      />
     </>
   );
 }
 
-export const getStaticProps = async () => {
-  const postFilePath = path.join(process.cwd(), `index.mdx`);
-  const source = fs.readFileSync(postFilePath);
+export const getStaticProps = async (pr) => {
+  const source = fs.readFileSync(`./index.mdx`);
 
   const { content, data } = matter(source);
 

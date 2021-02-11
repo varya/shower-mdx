@@ -4,33 +4,15 @@ theme: ribbon
 title: Shower Presentation Engine
 subtitle: Yours Truly, Famous Inc.
 style: >
-    #cover h2 {
-        margin: 30px 0 0;
-        color: white;
-        text-align: center;
-        font-size: 70px;
-    }
-    #cover p {
-        margin: 10px 0 0;
-        text-align: center;
-        color: white;
-        font-style: italic;
-        font-size: 20px;
-    }
-    #cover p a {
-        color: white;
-    }
-    #picture h2 {
-        color: white;
-    }
-    #see-more h2 {
-        font-size: 100px
-    }
-
-    #see-more img {
-        width: 0.72em;
-        height: 0.72em;
-     }
+  body {
+    margin: 0
+  }
+meta:
+  description: >
+    Describe your presentation here, and this description will be added to meta tags. Remove this text, if you don't need it.
+  cover: pictures/cover.jpg
+  author: Shower
+  website: shwr.me
 ---
 
 
@@ -39,19 +21,41 @@ style: >
 
 Brought to you by [Vadim Makeev](http://pepelsbey.net)
  
-<Cover src="https://shwr.me/pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
+<Cover src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
 
-[© John Carey]("http://fiftyfootshadows.net/")
+[© John Carey](http://fiftyfootshadows.net/)
 
 </Cover>
 
+<style>{`
+      #cover h2 {
+        margin: 30px 0 0;
+        color: white;
+        text-align: center;
+        font-size: 70px;
+      }
+
+      #cover p {
+        margin: 10px 0 0;
+        text-align: center;
+        color: white;
+        font-style: italic;
+        font-size: 20px;
+      }
+
+      #cover p a {
+        color: white;
+      }
+`}</style>
+
 
 ## Shower key features
-- Built on HTML, CSS and JavaScript
-- Works in all modern browsers
-- Themes are separated from engine
-- Fully keyboard accessible
-- Printable to PDF
+
+1. Built on HTML, CSS and JavaScript
+1. Works in all modern browsers
+1. Themes are separated from engine
+1. Fully keyboard accessible
+1. Printable to PDF
 
 <p className="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
 
@@ -62,14 +66,14 @@ Lorem ipsum dolor sit amet, consectetur [adipisicing](#4) elit, sed do eiusmod t
 ## Two columns if you like
 
 <Columns col="2">
-  
+
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
 
 </Columns>
 
-## All kinds of lists
+## All kind of lists
 
 1. Simple lists are marked with bullets
 1. Ordered lists begin with a number
@@ -122,19 +126,24 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 | **Thundercats**  | Jean        | Shorts    | Biodiesel
 | **Terry**        | Richardson  | Swag      | Blog
 
-It’s good to have information organized
+It’s good to have information organized.
 
 ## Pictures 
 {#picture}
 
-<Cover src="https://shwr.me/pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
+<Cover src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
 
-[© John Carey]("http://fiftyfootshadows.net/")
+[© John Carey](http://fiftyfootshadows.net/)
  
 </Cover>
 
+<style>{`
+  #picture h2 {
+    color: white;
+  }
+`}</style>
 
-## You can even do this way {.shout .shrink}
+## You can even shout this way {.shout .shrink}
 
 
 ## Inner navigation
@@ -156,3 +165,14 @@ It’s good to have information organized
   <img src="https://shwr.me/pictures/logo.svg" alt="Shower logo"/>
   <a href="https://github.com/shower/shower">See more on GitHub</a>
 </h2>
+
+<style>{`
+  #see-more h2 {
+    font-size: 100px
+  }
+
+  #see-more img {
+    width: 0.72em;
+    height: 0.72em;
+  }
+`}</style>

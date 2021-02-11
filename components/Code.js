@@ -1,9 +1,17 @@
-const Code = ({ children, ...props }) => {
+const Code = ({ children }) => {
   return (
     <pre>
-      {children.map((node) =>
-        node?.props?.originalType === "code" ? node : <code>{node}</code>
-      )}
+      {children.map((node, index) => {
+        let codeNode = node?.props?.originalType === "code" ? node : null;
+        return (
+          <code
+            key={"codeline" + index}
+            className={codeNode && codeNode?.props?.className}
+          >
+            {codeNode ? codeNode.props.children : node}
+          </code>
+        );
+      })}
     </pre>
   );
 };
