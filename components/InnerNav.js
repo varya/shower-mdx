@@ -12,7 +12,7 @@ const InnerNav = ({ children }) => {
       <ol>
         {listElements.map((item, index) => {
           return cloneElement(item, {
-            className: index === 0 ? "next" : "",
+            className: index === 0 ? "" : "next",
             key: "innernav-" + index,
           });
         })}

@@ -1,18 +1,25 @@
 ---
-
 theme: ribbon
 title: Shower Presentation Engine
 subtitle: Yours Truly, Famous Inc.
+# Incude global styles here
 style: >
   body {
     margin: 0
   }
+# Include footer content here or remove it
+footer: >
+  <footer class="badge">
+      <a href="https://github.com/varya/shower-mdx" target="_blank" rel="noopener">Fork me on GitHub</a>
+  </footer>
+# Include data for generating meta tags
 meta:
   description: >
     Describe your presentation here, and this description will be added to meta tags. Remove this text, if you don't need it.
   cover: pictures/cover.jpg
   author: Shower
   website: shwr.me
+  twitter: username
 ---
 
 
@@ -63,7 +70,7 @@ Brought to you by [Vadim Makeev](http://pepelsbey.net)
 
 Lorem ipsum dolor sit amet, consectetur [adipisicing](#4) elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, _quis nostrud_ exercitation ullamco laboris __nisi ut aliquip__ ex ea commodo consequat. Duis aute irure *dolor* in reprehenderit in voluptate velit esse cillum **dolore** eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in ```<culpa>``` qui officia deserunt mollit anim id est laborum.
 
-## Two columns if you like
+## Two columns if you like (or three, or four)
 
 <Columns col="2">
 
@@ -89,23 +96,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
 </Blockquote>
 
-
-
-## Code samples
-
-<Code>
-  {`<!DOCTYPE html>`}
-  <code className="mark">{`  <html lang="en">`} </code>
-  <mark>{`  <head> <!--Comment-->`}</mark>
-  {`     <title>Shower</title>`}
-  {`   <meta charset="UTF-8">`}
-  {`   <link rel="stylesheet" href="screen.css">`}
-  <mark>{`<title>Shower</title>`}</mark>
-</Code>
-
-
-
-## Code samples
+## Code samples 1: simple code block with markdown syntax
 
 ```html
   <!DOCTYPE html>
@@ -117,7 +108,19 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
   </head>
 ```
 
-## Even tables
+## Code samples 2: Code component and custom jsx to highlight lines of code
+
+<Code>
+  {`<!DOCTYPE html>`}
+  <code className="mark">{`  <html lang="en">`} </code>
+  <mark>{`  <head> <!--Comment-->`}</mark>
+  {`     <title>Shower</title>`}
+  {`   <meta charset="UTF-8">`}
+  {`   <link rel="stylesheet" href="screen.css">`}
+  <mark>{`<title>Shower</title>`}</mark>
+</Code>
+
+## Even tables can be made in markdown.
 
 | Locavore         | Umami       | Helvetica | Vegan
 | ---              | ---         | ---       |---
@@ -176,3 +179,5 @@ It’s good to have information organized.
     height: 0.72em;
   }
 `}</style>
+
+
