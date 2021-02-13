@@ -15,7 +15,7 @@ const loadTheme = (name) => {
 };
 
 const Head = ({ title, description, style, meta, theme }) => {
-  const url = publicRuntimeConfig.basePath;
+  const url = publicRuntimeConfig?.basePath;
   loadTheme(theme);
 
   return (
