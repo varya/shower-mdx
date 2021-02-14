@@ -22,8 +22,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: yarn install
-      - run: yarn export
+      - name: Install dependencies
+        run: yarn install
+      - name: Build and export static files
+        run: REPO_NAME=${{github.event.repository.name}} yarn export
       # for access _next directory
       - name: Add nojekyll
         run: touch ./out/.nojekyll
