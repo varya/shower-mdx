@@ -34,11 +34,8 @@ Custom attributes are currently supported for sections, headings, links, code, s
 
 ### Adding custom styles.
 
-There are several options to pass your custom styles to the template:
-
-- Pass it through mdx template, through style field at the frontmatter (global) or jsx string - see sample [index.mdx](https://github.com/varya/shower-mdx/blob/master/index.mdx) for examples.
-
-- Use a theme. There are two themes included by default - "ribbon" and "material". The theme name needs to be specified as "theme" property in index.mdx. If you want to use custom theme, you will need to manually add name and path to [loadTheme function](https://github.com/varya/shower-mdx/blob/master/components/Head.js#L6) in Head.
+If you want to change the theme, load theme css directly at the top of [index.js](https://github.com/varya/shower-mdx/blob/master/pages/index.js). The default themes "Ribbon" and "material" are already preinstalled.
+If you want to tweak some components, you can provode css through "style" field in frontmatter or inside `<style>` tags. See [index.mdx](https://github.com/varya/shower-mdx/blob/master/index.mdx) for examples.
 
 ### Adding custom components
 

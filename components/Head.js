@@ -3,20 +3,8 @@ import NextHead from "next/head";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
-const loadTheme = (name) => {
-  switch (name) {
-    case "material":
-      import("@shower/material/styles/styles.css");
-      break;
-    case "ribbon":
-    default:
-      import("@shower/ribbon/styles/styles.css");
-  }
-};
-
-const Head = ({ title, description, style, meta, theme }) => {
+const Head = ({ title, description, style, meta }) => {
   const url = publicRuntimeConfig?.basePath;
-  loadTheme(theme);
 
   return (
     <NextHead>
