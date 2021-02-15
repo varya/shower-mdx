@@ -34,8 +34,9 @@ Custom attributes are currently supported for sections, headings, links, code, s
 
 ### Adding custom styles.
 
-If you want to change the theme, load theme css directly at the top of [index.js](https://github.com/varya/shower-mdx/blob/master/pages/index.js). The default themes "Ribbon" and "material" are already preinstalled.
-If you want to tweak some components, you can provode css through "style" field in frontmatter or inside `<style>` tags. See [index.mdx](https://github.com/varya/shower-mdx/blob/master/index.mdx) for examples.
+If you want to change the theme, load theme css directly at the top of [index.js](https://github.com/varya/shower-mdx/blob/master/pages/index.js). The default themes "ribbon" and "material" are already included in package.
+
+If you just want to tweak some components, provide css through "style" field in frontmatter or inside `<style>` tags. See [index.mdx](https://github.com/varya/shower-mdx/blob/master/index.mdx) for examples.
 
 ### Adding custom components
 
@@ -45,20 +46,16 @@ You can add your React components to the presentation. Here is what you need to 
 
 2. Re-export it in `components/index.js` like that: `export {default as MyComponent} from "./MyComponent"`
 
-Now your component is accessible in global .mdx scope. You don't need to import it directly to .mdx
+Now your component will be accessible in global .mdx scope. You don't need to import it directly to .mdx
 
 ## Deployment
 
-First, build and export your presentation:
+Deployment to your Github Pages is set up automatically via Github Actions, and triggers every time you push into `master` branch.
+
+If you need to test your build locally, run:
 
 ```shell
 yarn export
-```
-
-If you want to deploy a presentation at your Github Pages, simply run:
-
-```shell
-yarn deploy
 ```
 
 ## Contributing
