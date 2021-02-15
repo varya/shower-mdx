@@ -1,18 +1,8 @@
 import React from "react";
 import NextHead from "next/head";
-const loadTheme = (name) => {
-  switch (name) {
-    case "material":
-      import("@shower/material/styles/styles.css");
-      break;
-    case "ribbon":
-    default:
-      import("@shower/ribbon/styles/styles.css");
-  }
-};
 
-const Head = ({ title, style, meta, theme }) => {
-  loadTheme(theme);
+const Head = ({ title, description, style, meta }) => {
+
   return (
     <NextHead>
       {/* General tags */}

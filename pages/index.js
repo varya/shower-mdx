@@ -4,6 +4,10 @@ import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 import * as Components from "../components";
 
+// Import your custom theme here and remove the one you don't need
+import("@shower/ribbon/styles/styles.css");
+// import("@shower/material/styles/styles.css"); // Material theme is also available by default
+
 const components = {
   section: Components.Slide,
   ...Components,
