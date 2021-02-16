@@ -1,5 +1,5 @@
 import React from "react";
-import { parseAttributesFromChildren } from "../utils/parseAttributes";
+import { parseAttributesFromProps } from "../utils/parseAttributes";
 
 const Slide = (props) => {
   let children = React.Children.toArray(props.children);
@@ -21,8 +21,7 @@ const Slide = (props) => {
   } = firstChild.props;
 
   let headingProps = Object.assign(
-    { children: headingChildren },
-    parseAttributesFromChildren(headingChildren)
+    parseAttributesFromProps({ children: headingChildren })
   );
 
   return (
