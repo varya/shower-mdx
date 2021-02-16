@@ -41,6 +41,7 @@ const Head = ({ title, description, style, meta }) => {
             }
           ${style}`}
       </style>
+      <script async src="https://cdn.splitbee.io/sb.js"></script>
     </NextHead>
   );
 };
