@@ -12,6 +12,7 @@ class MyDocument extends Document {
         <Head />
         <body tabIndex="0">
           <Main />
+          <script type="text/javascript" src="shower.js"></script>
           <NextScript />
           {/* related to focus hack, to be removed */}
           <style jsx global>{`

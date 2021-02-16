@@ -11,8 +11,9 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export",
-    "deploy": "gh-pages -d out" 
-  },
+    "deploy": "gh-pages -d out",
+    "postinstall": "node ./scripts/copy_assets_to_public.js"
+},
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.6",
