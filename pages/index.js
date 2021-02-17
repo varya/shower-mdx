@@ -13,6 +13,8 @@ const components = {
   ...Components,
   p: (p) => <Components.WithAttributes as="p" {...p} />,
   li: (p) => <Components.WithAttributes as="li" {...p} />,
+  ul: (p) => <Components.ListWithAttributes as="ul" {...p} />,
+  ol: (p) => <Components.ListWithAttributes as="ol" {...p} />,
 };
 
 export default function Presentation({ content, frontMatter }) {

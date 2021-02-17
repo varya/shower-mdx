@@ -40,24 +40,29 @@ export const parseAttributesFromProps = (props) => {
  * Parse attributes from string
  *
  * @param {string} input string
+ * @param {boolean} block if the attribute should be parsed from the next line(after line break)
  * @returns {object} - nodeAttributes
  * @returns {string} - nodeAttributes.className
  * @returns {string} - nodeAttributes.children - modified string without attributes
  *
  */
-const parseAttributesFromString = (string) => {
-  // Search for "{...}" brackets
-  let attrString = string.match(/{(.*?)}/);
+export const parseAttributesFromString = (string, block = false) => {
+  if (string instanceof String || typeof string === "string") {
+    // Search for "{...}" brackets
+    const attrRe = block ? /\n{(.*?)}/ : / {(.*?)}/;
+    let attrString = string.match(attrRe);
 
-  if (!attrString) return { children: string };
+    if (!attrString) return { children: string };
 
-  let parsedAttributes = parseAttr(attrString[0]).prop;
+    let parsedAttributes = parseAttr(attrString[1]).prop;
 
-  // Since parseAttr returns object with "class" key, we need to fix it
-  const { class: classNamesArr, ...otherProps } = parsedAttributes;
+    // Since parseAttr returns object with "class" key, we need to fix it
+    const { class: classNamesArr, ...otherProps } = parsedAttributes;
 
-  return Object.assign(otherProps, {
-    className: classNamesArr && classNamesArr.join(" "),
-    children: string.substring(0, attrString.index), // extract attributes definition and return clean string
-  });
+    return Object.assign(otherProps, {
+      className: classNamesArr && classNamesArr.join(" "),
+      children: string.substring(0, attrString.index), // extract attributes definition and return clean string
+    });
+  }
+  return string;
 };
