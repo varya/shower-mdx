@@ -11,6 +11,8 @@ import("@shower/ribbon/styles/styles.css");
 const components = {
   section: Components.Slide,
   ...Components,
+  p: (p) => <Components.WithAttributes as="p" {...p} />,
+  li: (p) => <Components.WithAttributes as="li" {...p} />,
 };
 
 export default function Presentation({ content, frontMatter }) {
