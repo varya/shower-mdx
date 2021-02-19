@@ -41,7 +41,7 @@ const Head = ({ title, description, style, meta }) => {
             }
           ${style}`}
       </style>
-      <script async src="https://cdn.splitbee.io/sb.js"></script>
+      <script data-token="A57MCD537OHA" async src="https://cdn.splitbee.io/sb.js"></script>
     </NextHead>
   );
 };
