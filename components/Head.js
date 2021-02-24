@@ -2,7 +2,6 @@ import React from "react";
 import NextHead from "next/head";
 
 const Head = ({ title, description, style, meta }) => {
-
   return (
     <NextHead>
       {/* General tags */}
@@ -41,7 +40,6 @@ const Head = ({ title, description, style, meta }) => {
             }
           ${style}`}
       </style>
-      <script data-token="A57MCD537OHA" async src="https://cdn.splitbee.io/sb.js"></script>
     </NextHead>
   );
 };
