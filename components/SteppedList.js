@@ -1,6 +1,6 @@
 import { cloneElement } from "react";
 
-const InnerNav = ({ children }) => {
+const SteppedList = ({ children }) => {
   const listElements =
     children?.props?.originalType === "ul" ||
     children?.props?.originalType === "ol"
@@ -13,7 +13,7 @@ const InnerNav = ({ children }) => {
         {listElements.map((item, index) => {
           return cloneElement(item, {
             className: index === 0 ? "" : "next",
-            key: "innernav-" + index,
+            key: "SteppedList-" + index,
           });
         })}
       </ol>
@@ -22,4 +22,4 @@ const InnerNav = ({ children }) => {
   return <ol>{children}</ol>;
 };
 
-export default InnerNav;
+export default SteppedList;

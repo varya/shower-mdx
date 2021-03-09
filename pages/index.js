@@ -11,7 +11,7 @@ import("@shower/ribbon/styles/styles.css");
 const components = {
   section: Components.Slide,
   ...Components,
-  p: (p) => <Components.WithAttributes as="p" {...p} />,
+  p: (p) => <Components.ParagraphWithAttributes as="p" {...p} />,
   li: (p) => <Components.WithAttributes as="li" {...p} />,
   ul: (p) => <Components.ListWithAttributes as="ul" {...p} />,
   ol: (p) => <Components.ListWithAttributes as="ol" {...p} />,
@@ -59,6 +59,7 @@ export const getStaticProps = async () => {
       remarkPlugins: [
         [require("remark-attr"), { enableAtxHeaderInline: false }],
         require("remark-sectionize"),
+        require("remark-mark-plus"),
       ],
     },
     scope: data,
