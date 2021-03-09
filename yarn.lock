@@ -3942,6 +3942,13 @@ remark-footnotes@^1.0.0:
   resolved "https://registry.yarnpkg.com/remark-footnotes/-/remark-footnotes-1.0.0.tgz#9c7a97f9a89397858a50033373020b1ea2aad011"
   integrity sha512-X9Ncj4cj3/CIvLI2Z9IobHtVi8FVdUrdJkCNaL9kdX8ohfsi18DXHsCVd/A7ssARBdccdDb5ODnt62WuEWaM/g==
 
+remark-mark-plus@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/remark-mark-plus/-/remark-mark-plus-1.0.21.tgz#5b1f50f4e80d2e195272bfcd3a4c164bf9e44d80"
+  integrity sha512-jQMoLARvb4wSP/mlSR6Fd8j2oGQadmX8nOQumsBfDZQpu/UQgvKirt14luHCcg9WD5mYtTi4YHQvFh9gDdsbog==
+  dependencies:
+    is-whitespace-character "^1.0.0"
+
 remark-mdx@1.6.22:
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/remark-mdx/-/remark-mdx-1.6.22.tgz#06a8dab07dcfdd57f3373af7f86bd0e992108bbd"

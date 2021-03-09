@@ -1,6 +1,6 @@
 const parseAttr = require("md-attr-parser");
 import React from "react";
-
+import { isString } from "./helpers";
 /**
  * Parse attributes from props object
  *
@@ -47,7 +47,7 @@ export const parseAttributesFromProps = (props) => {
  *
  */
 export const parseAttributesFromString = (string, block = false) => {
-  if (string instanceof String || typeof string === "string") {
+  if (isString(string)) {
     // Search for "{...}" brackets
     const attrRe = block ? /\n{(.*?)}/ : / {(.*?)}/;
     let attrString = string.match(attrRe);
