@@ -68,7 +68,7 @@ export const getStaticProps = async () => {
   const presentationHeader = `
     <header class="caption">
       <h1>${data.title}</h1>
-      ${data.subtitle && `<p>${data.subtitle}</p>`}
+      ${data.subtitle ? `<p>${data.subtitle}</p>` : ''}
     </header>`;
 
   const presentationFooter = `${
